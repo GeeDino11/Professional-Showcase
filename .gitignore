@@ -128,3 +128,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# R Programing
+.Rhistory
+.Rapp.history
+.RData
+.RDataTmp
+
+# OS
+.DS_Store
