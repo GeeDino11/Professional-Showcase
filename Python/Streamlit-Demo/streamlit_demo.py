@@ -1,3 +1,4 @@
+#Imports
 import streamlit as st
 import numpy as np
 from sklearn import datasets
@@ -9,6 +10,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 
+#Some text
 st.title('Streamlit Demo')
 
 st.write("""
@@ -23,11 +25,12 @@ st.write("""
 
 
 
-
+#Creating Selectbox
 dataset_name = st.sidebar.selectbox('Select Dataset', ('Iris', 'Breast Cancer', 'Wine'))
 
 classifier_name = st.sidebar.selectbox('Select Classifier', ('KNN', 'SVM', 'Random Forest'))
 
+#Defining our datasets
 def get_dataset(dataset_name):
     if dataset_name == 'Iris':
         data = datasets.load_iris()
@@ -46,7 +49,7 @@ X,y = get_dataset(dataset_name)
 st.write('**Shape of Dataset**', X.shape)
 st.write('**Number of Classes**', len(np.unique(y)))
 
-
+#Adding our params
 def add_parameter_ui(clf_name):
     params = dict()
     if clf_name =='KNN':
