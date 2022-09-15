@@ -1,6 +1,8 @@
 #Imports
-import streamlit as st
+import pandas as pd
 import numpy as np
+import streamlit as st
+import matplotlib.pyplot as plt
 from sklearn import datasets
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
@@ -8,8 +10,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.decomposition import PCA
-import matplotlib.pyplot as plt
-import pandas as pd
+
 
 #Some text
 st.title('Streamlit Demo')
@@ -28,7 +29,6 @@ st.write("""
 
 #Creating Selectbox
 dataset_name = st.sidebar.selectbox('Select Dataset', ('Iris', 'Breast Cancer', 'Wine'))
-
 classifier_name = st.sidebar.selectbox('Select Classifier', ('KNN', 'SVM', 'Random Forest'))
 
 #Defining our datasets
@@ -48,6 +48,7 @@ def get_dataset(dataset_name):
         st.write('Read More About the [Wine Dataset Here](https://archive.ics.uci.edu/ml/datasets/wine)')
         df = pd.DataFrame(data.data, columns=data.feature_names , index=None)
         st.dataframe(df.head())
+    
     X= data.data
     y=data.target
     return X,y
@@ -109,7 +110,7 @@ X_projected = pca.fit_transform(X)
 x1 = X_projected[:,0]
 x2 = X_projected[:,1]
 
-fig= plt.figure()
+fig = plt.figure()
 plt.scatter(x1, x2, c=y, alpha=0.8, cmap='viridis')
 plt.xlabel('Principal Component 1')
 plt.ylabel('Principal Component 2')
