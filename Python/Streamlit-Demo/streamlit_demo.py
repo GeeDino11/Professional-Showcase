@@ -112,6 +112,7 @@ x2 = X_projected[:,1]
 
 fig = plt.figure()
 plt.scatter(x1, x2, c=y, alpha=0.8, cmap='viridis')
+plt.title(f'{dataset_name} Data Scatter Plot')
 plt.xlabel('Principal Component 1')
 plt.ylabel('Principal Component 2')
 plt.colorbar()
