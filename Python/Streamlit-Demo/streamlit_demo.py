@@ -9,8 +9,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
-
-from IPython.display import display
 import pandas as pd
 
 #Some text
