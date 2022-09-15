@@ -22,6 +22,8 @@ st.write("""
 """)
 
 
+
+
 dataset_name = st.sidebar.selectbox('Select Dataset', ('Iris', 'Breast Cancer', 'Wine dataset'))
 
 classifier_name = st.sidebar.selectbox('Select Classifier', ('KNN', 'SVM', 'Random Forest'))
@@ -38,9 +40,11 @@ def get_dataset(dataset_name):
     y=data.target
     return X,y
 
+st.write(f'## Viewing the {dataset_name} Dataset')
+
 X,y = get_dataset(dataset_name)
-st.write('Shape of Dataset', X.shape)
-st.write('Number of Classes', len(np.unique(y)))
+st.write('**Shape of Dataset**', X.shape)
+st.write('**Number of Classes**', len(np.unique(y)))
 
 
 def add_parameter_ui(clf_name):
@@ -83,8 +87,8 @@ y_pred = clf.predict(X_test)
 
 acc = round(accuracy_score(y_test, y_pred), 2)
 
-st.write(f'Classifier Type: {classifier_name}')
-st.write(f'Accuracy Score: {acc}')
+st.write(f'**Classifier Type: {classifier_name}**')
+st.write(f'**Accuracy Score: {acc}**')
 
 # Plot
 pca = PCA(2)
