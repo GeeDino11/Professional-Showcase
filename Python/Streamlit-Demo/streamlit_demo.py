@@ -10,6 +10,9 @@ from sklearn.metrics import accuracy_score
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 
+from IPython.display import display
+import pandas as pd
+
 #Some text
 st.title('Streamlit Demo')
 
@@ -34,11 +37,19 @@ classifier_name = st.sidebar.selectbox('Select Classifier', ('KNN', 'SVM', 'Rand
 def get_dataset(dataset_name):
     if dataset_name == 'Iris':
         data = datasets.load_iris()
+        st.write('Read More About the [Iris Dataset Here](https://archive.ics.uci.edu/ml/datasets/iris)')
+        df = pd.DataFrame(data.data, columns=data.feature_names , index=None)
+        st.dataframe(df.head())
     elif dataset_name == 'Breast Cancer':
         data = datasets.load_breast_cancer()
+        st.write('Read More About the [Breast Cancer Dataset Here](https://archive.ics.uci.edu/ml/datasets/breast+cancer+wisconsin+(diagnostic))')
+        df = pd.DataFrame(data.data, columns=data.feature_names , index=None)
+        st.dataframe(df.head())
     else: 
         data = datasets.load_wine()
-
+        st.write('Read More About the [Wine Dataset Here](https://archive.ics.uci.edu/ml/datasets/wine)')
+        df = pd.DataFrame(data.data, columns=data.feature_names , index=None)
+        st.dataframe(df.head())
     X= data.data
     y=data.target
     return X,y
