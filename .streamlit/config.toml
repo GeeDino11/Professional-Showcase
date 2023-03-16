@@ -16,4 +16,4 @@ font = "sans serif"
 #font="sans serif"
 
 [server]
-maxUploadSize=1028
+maxUploadSize=514
